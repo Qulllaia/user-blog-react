@@ -1,0 +1,10 @@
+main {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.auth-from {
+  width: max-content;
+}

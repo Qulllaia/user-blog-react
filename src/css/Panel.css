@@ -1,0 +1,9 @@
+.panel {
+  width: 30%;
+  height: 10rem;
+  margin-top: 1rem;
+  margin-right: 2rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  padding: 10px;
+}

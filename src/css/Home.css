@@ -14,13 +14,14 @@
 }
 
 .background {
+  padding-top: 4rem;
   position: absolute;
   background-color: rgba(194, 194, 194, 0.204);
-  height: 100vh;
+  height: max-content;
   width: 100%;
+  display: flex;
+  flex-direction: row;
 }
-.posts {
-  margin-top: 3rem;
-  background-color: rgb(255, 255, 255);
-  margin-inline: 12rem;
+.post-content {
+  width: 80%;
 }

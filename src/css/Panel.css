@@ -1,9 +1,35 @@
 .panel {
-  width: 30%;
-  height: 10rem;
-  margin-top: 1rem;
+  position: fixed;
+  width: max-content;
+  height: fit-content;
+  right: 0.1rem;
+  margin-top: 5rem;
+  margin-left: 1;
   margin-right: 2rem;
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
   padding: 10px;
+}
+ul{
+  list-style: none;
+  padding-left: 0;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+#floatingText{
+  height: 10rem;
+  vertical-align: top;
+}
+.dialog{
+  border: 0;
+  border-radius: 1rem;
+  width: 40rem;
+  height: fit-content;
+}
+img{
+  margin-top: 1rem;
+  border-radius: 1rem;
+  height: max-content;
 }

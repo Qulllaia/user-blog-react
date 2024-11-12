@@ -6,3 +6,16 @@
   border-radius: 15px;
   padding: 10px;
 }
+img{
+  height: 30rem;
+}
+.post-header{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+button{
+  height: max-content;
+  width: max-content;
+  font-size: x-small;
+}

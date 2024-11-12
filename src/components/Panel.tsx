@@ -1,16 +1,27 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../css/Panel.css";
 export const Panel = () => {  
+  const navigate = useNavigate();
+
+  const parseJwt = (token:any) => {
+    try {
+      return JSON.parse(atob(token.split('.')[1]));
+    } catch (e) {
+      return null;
+    }
+  };
   const ImagePreview = (event:any) =>{
     let output = document.getElementById('ImageId') as HTMLImageElement;
     output!.src = URL.createObjectURL(event.target.files[0]);
   }   
   async function SendForm(e:any) {
     e.preventDefault();
-    console.log(new FormData(e.target))
+    let formData = new FormData(e.target);
+    formData.append("userId", parseJwt(localStorage.getItem('token')).id);
+
     let response = await fetch('http://localhost:7000/posts', {
       method: 'POST',
-      body: new FormData(e.target) 
+      body: formData
     });
     let result = await response.json();
     console.log(result);
@@ -23,13 +34,18 @@ export const Panel = () => {
         <li onClick={()=>document.querySelector('dialog')!.showModal()}>Добавить пост</li>
         <li>Перейти в профиль</li>
         <li>О приложении</li>
+        <li onClick={()=>{
+          localStorage.clear();
+          navigate("/login");
+        }}>Выйти из аккаунта</li>
       </ul>
     </div>
     <dialog className='dialog'>
       <h3>Создать пост</h3>
-      <form onSubmit={event => SendForm(event)}>
-        <div className="form-floating">
+      <form onSubmit={(event) => SendForm(event)}>
+        <div className="form-floating" id="myTargetForm">
             <input
+              name="title"
               className="form-control"
               id="floatingTitle"
               placeholder="Название поста"
@@ -38,6 +54,7 @@ export const Panel = () => {
           </div>
           <div className="form-floating mt-2">
             <textarea
+              name="content"
               className="form-control"
               id="floatingText"
               placeholder="Название поста"
@@ -46,7 +63,9 @@ export const Panel = () => {
           </div>
 
           <input
+              name="image"
               type="file"
+              id="image"
               className="form-control mt-2"
               placeholder="Ваша картинка"
               onChange={(event)=>ImagePreview(event)}

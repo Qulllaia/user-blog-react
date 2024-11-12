@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../css/Login.css";
 
 export const Registration = () => {
+  const navigate = useNavigate();
+
   function registerFunction(e: any) {
     e.preventDefault();
     fetch("http://localhost:7000/auth/registration", {
@@ -18,6 +20,8 @@ export const Registration = () => {
       .then((res) => res.json())
       .then((data) => {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("token", data.token);
+        navigate("/home");
       })
       .catch((e) => console.log(e.message));
   }

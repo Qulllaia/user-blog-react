@@ -32,7 +32,7 @@ export const Panel = () => {
       <h1>Панель управления</h1>
       <ul>
         <li onClick={()=>document.querySelector('dialog')!.showModal()}>Добавить пост</li>
-        <li>Перейти в профиль</li>
+        <li onClick={()=>navigate(`/user/${parseJwt(localStorage.getItem('token')).id}`)}>Перейти в профиль</li>
         <li>О приложении</li>
         <li onClick={()=>{
           localStorage.clear();
@@ -42,7 +42,10 @@ export const Panel = () => {
     </div>
     <dialog className='dialog'>
       <h3>Создать пост</h3>
-      <form onSubmit={(event) => SendForm(event)}>
+      <form onSubmit={(event) => {
+        SendForm(event);
+        document.querySelector('dialog')!.close();
+        }}>
         <div className="form-floating" id="myTargetForm">
             <input
               name="title"

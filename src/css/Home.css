@@ -8,11 +8,16 @@
   margin-left: 2rem;
   margin-right: 2rem;
   border-radius: 15px;
+  padding: 0.5rem;
+}
+
+body{
+  background-color: rgba(194, 194, 194, 0.204);
+
 }
 
 .background {
   position: absolute;
-  background-color: rgba(194, 194, 194, 0.204);
   height: max-content;
   width: 100%;
   display: flex;
@@ -20,4 +25,13 @@
 }
 .post-content {
   width: 70%;
+}
+svg{
+  width: 90%;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+rect{
+  width: 100%;
 }

@@ -1,0 +1,16 @@
+.profile-main{
+    margin-top: 1rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+.profilePic{
+    height: 10rem;
+    margin-top: 3.5rem;
+}
+.user-header{
+    display: flex;
+    flex-direction: row;
+}
+.back-btn{
+    font-size: x-large;
+}

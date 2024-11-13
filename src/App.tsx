@@ -5,8 +5,7 @@ function App(props: any) {
   const navigate = useNavigate();
   useEffect(() => {
     let token = localStorage.getItem("token");
-    if (token && token !== "undefined") navigate("/home");
-    else navigate("/login");
+    if (!token || token === "undefined") navigate("/login");
   }, []);
   return (
     <div className="App">

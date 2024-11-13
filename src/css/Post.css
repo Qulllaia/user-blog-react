@@ -19,3 +19,10 @@ button{
   width: max-content;
   font-size: x-small;
 }
+.post-text{
+  margin-bottom: 0;
+}
+.profile-link{
+  color: black;
+  text-decoration-line: none;
+}

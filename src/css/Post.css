@@ -6,8 +6,8 @@
   border-radius: 15px;
   padding: 10px;
 }
-img{
-  height: 30rem;
+.pre-watch{
+  width: 100%;
 }
 .post-header{
   display: flex;
@@ -25,4 +25,64 @@ button{
 .profile-link{
   color: black;
   text-decoration-line: none;
+}
+.edit{
+  margin-right: 1rem !important;
+}
+.buttons{
+  opacity: 0;
+  position: absolute;
+  right: -0.5rem;
+  z-index: -10;
+}
+.ul-activator{
+  position: relative;
+  
+}
+.dots{
+  margin:0;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+}
+
+.edit-dialog{
+  border: 0;
+  border-radius: 1rem;
+  width: 40rem;
+  height: fit-content;
+}
+.ul-activator:hover .buttons {
+  opacity: 1;
+  z-index: 1;
+  flex-direction:column-reverse;
+  transition: opacity 1s;
+}
+.ul-activator:hover .dots{
+  background: radial-gradient(rgba(234, 234, 234, 0.687), white);
+}
+button{
+  position: relative;
+}
+.delete.btn, .edit.btn{
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(166, 166, 166, 0.644);
+  border-radius: 0;
+  width: 100%;
+}
+.delete.btn{
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom: 0;
+}
+
+.edit.btn{
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.delete.btn:hover, .edit.btn:hover{
+  background-color: rgba(241, 241, 241, 0.84);
 }

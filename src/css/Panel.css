@@ -9,6 +9,10 @@
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
   padding: 10px;
+  transition: all 0.3s ease-out;
+}
+.panel.move{
+  margin-top: 1rem;
 }
 ul{
   list-style: none;
@@ -32,4 +36,9 @@ img{
   margin-top: 1rem;
   border-radius: 1rem;
   height: max-content;
+}
+@media (max-width: 1200px) {
+  .panel{
+    display: none;
+  }
 }

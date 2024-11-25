@@ -9,11 +9,13 @@
   margin-right: 2rem;
   border-radius: 15px;
   padding: 0.5rem;
+  display: flex;
 }
-
+.home-panel{
+  display: none;
+}
 body{
   background-color: rgba(194, 194, 194, 0.204);
-
 }
 
 .background {
@@ -34,4 +36,32 @@ svg{
 }
 rect{
   width: 100%;
+}
+@media (max-width: 1200px) {
+  .home-panel{
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .home-panel li{
+    font-size: medium;
+    font-weight: 400;
+    display: inline;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  .post-content{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100% ;
+  }
+}
+@media (max-width: 773px) {
+  .nav-bar{
+    font-size: medium;
+  }
+  .home-panel li{
+    font-size: small;
+  }
 }

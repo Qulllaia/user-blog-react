@@ -12,7 +12,6 @@ export const Login = () => {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      //make sure to serialize your JSON body
       body: JSON.stringify({
         email: e.target[0].value,
         password: e.target[1].value,

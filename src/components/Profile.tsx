@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import '../css/Profile.css'
 import defaultAvatar from '../static/default.png';
+import { Post } from "./Post";
 interface UserData{
     id:number;
     email: string;
     createdAt: string;
     banned:boolean;
-    posts:object;
+    posts:any
 }
 
 export const Profile = () =>{
 
     const [userData, setUserData] = useState<UserData>()
+    const [postData, setPostData] = useState([])
 
     const parseJwt = (token:any) => {
         try {
@@ -24,7 +26,10 @@ export const Profile = () =>{
         const hrefArr = window.location.href.split('/');
         fetch(`http://localhost:7000/users/${hrefArr[hrefArr.length-1]}`)
         .then((res)=>res.json())
-        .then((data)=>setUserData(data))
+        .then((data)=>{
+            setUserData(data); 
+            setPostData(data.posts); 
+        })
     },[])
     return(
         <div className="profile-main">
@@ -39,6 +44,14 @@ export const Profile = () =>{
                 </div>
                 </div>
             </div>    
+            <h1>Публикации {userData?.email}</h1>
+            <div className="profile-post-content">
+                {
+                    postData.map((_:any, index:any)=>(
+                        <Post key={index} postData={postData[index]} setPostData={setPostData}></Post>
+                    ))
+                }
+            </div>
         </div>
     )
 }

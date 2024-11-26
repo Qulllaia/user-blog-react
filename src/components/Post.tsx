@@ -51,9 +51,16 @@ export const Post = ({postData, setPostData}:any) => {
       </div>
 
       <div className="post-body">
-        <Link className="profile-link" to={`/user/${postData.author.id}`}>Author: {postData.author.email}</Link>
+        {
+          postData.author ? 
+          <Link className="profile-link" to={`/user/${postData.author.id}`}>Author: {postData.author.email}</Link>
+          :
+          <></>
+        }
         <p className="post-text">{postData.content}</p>
-        <img className="pre-watch" alt="" src={'http://localhost:7000/' + postData.image}></img>
+        <div className="imgBG">
+          <img className="pre-watch" alt="" src={'http://localhost:7000/' + postData.image}></img>
+        </div>
       </div>
       <EditDialog postData={postData}></EditDialog>
     </div>
